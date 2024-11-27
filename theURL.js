@@ -1,16 +1,15 @@
-function isWellFormedURL(urlString) {
+function isURLWellFormed(urlString) {
   try {
-    console.log("This is the url as supplied:", urlString);
-    const url = new URL(urlString);
-    console.log("This is the url's protocol", url.protocol);
-    console.log("This is the url's host", url.host);
-    console.log("This is the url's hostname", url.hostname);
-    console.log("This is the url's pathname", url.pathname);
-    if (!url.protocol || url.protocol !== "https") {
-      return false;
+    const urlRegex =
+      /^(https?|ftp):\/\/(([a-z\d]([a-z\d-]*[a-z\d])?\.)+[a-z]{2,}|localhost)(\/[-a-z\d%_.~+]*)*(\?[;&a-z\d%_.~+=-]*)?(\#[-a-z\d_]*)?$/i;
+    if (!urlRegex.test(urlString)) {
+      return "URL format is invalid.";
     }
+    const url = new URL(urlString);
     return true;
   } catch (error) {
-    return false;
+    return "Error validating URL: ${error.message}";
   }
 }
+
+module.exports = { isURLWellFormed };
