@@ -1,0 +1,22 @@
+{
+  "name": "a117026184",
+  "version": "1.0.0",
+  "description": "Web Applications Development Assignment 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/17026184uhi/assignment117026184.git"
+  },
+  "author": "10726184",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/17026184uhi/assignment117026184/issues"
+  },
+  "homepage": "https://github.com/17026184uhi/assignment117026184#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
