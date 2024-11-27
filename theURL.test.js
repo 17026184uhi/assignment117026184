@@ -17,11 +17,11 @@ test("Checks if wellFormedURL2 is well-formed", () => {
   expect(theURL.isURLWellFormed(wellFormedURL2)).toBe(true);
 });
 
-// test("Checks if wellFormedURL3 is well-formed", () => {
-//   const wellFormedURL3 =
-//     "https://en.wikipedia.org/wiki/February_9#:~:text=February%209%20is%20the%2040th,(326%20in%20leap%20years)";
-//   expect(theURL.isURLWellFormed(wellFormedURL3)).toBe(true);
-// });
+test("Checks if wellFormedURL3 is well-formed", () => {
+  const wellFormedURL3 =
+    "https://en.wikipedia.org/wiki/February_9#:~:text=February%209%20is%20the%2040th,(326%20in%20leap%20years)";
+  expect(theURL.isURLWellFormed(wellFormedURL3)).toBe(true);
+});
 
 // test("Checks if wellFormedURL4 is well-formed", () => {
 //   expect(theURL.isURLWellFormed(wellformedURL4)).toBe(true);
