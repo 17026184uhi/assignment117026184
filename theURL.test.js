@@ -47,3 +47,31 @@ test("Checks the wrong URL is NOT the correct value", () => {
     expectedURL;
   expect(theURL.checkURLValue(testURL)).toBe(msg);
 });
+
+test("Checks the URL ends with balances", () => {
+  const url = "https://i-want-to-study-engingeering.org/q/balances";
+  expect(theURL.checkURLEndsWithBalances(url)).toBe(true);
+});
+
+test("Checks the URL ends with balances", () => {
+  const url =
+    "https://i-want-to-study-engingeering.org/q/balances?value1=0,value2=1";
+  expect(theURL.checkURLEndsWithBalances(url)).toBe(true);
+});
+
+test("Checks the URL does NOT end with balances", () => {
+  const url = "https://i-want-to-study-engingeering.org/q/widgets";
+  expect(theURL.checkURLEndsWithBalances(url)).toBe(false);
+});
+
+test("Checks the URL does NOT end with balances", () => {
+  const url =
+    "https://i-want-to-study-engingeering.org/q/widgets?value1=0,value2=1";
+  expect(theURL.checkURLEndsWithBalances(url)).toBe(false);
+});
+
+test("Checks the URL does NOT end with balances", () => {
+  const url =
+    "https://i-want-to-study-engingeering.org/q/balances/widgets?value1=0,value2=1";
+  expect(theURL.checkURLEndsWithBalances(url)).toBe(false);
+});

@@ -21,4 +21,19 @@ function checkURLValue(urlString) {
   }
 }
 
-module.exports = { isURLWellFormed, checkURLValue };
+function checkURLEndsWithBalances(urlString) {
+  const balances = "balances";
+  if (urlString.indexOf("?") != -1) {
+    var parts = urlString.split("?");
+    urlString = parts[0];
+  }
+  parts = urlString.split("/");
+  const noOfParts = parts.length;
+  if (parts[noOfParts - 1] === balances) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+module.exports = { isURLWellFormed, checkURLValue, checkURLEndsWithBalances };
