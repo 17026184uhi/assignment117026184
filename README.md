@@ -23,12 +23,9 @@ That command will run all the tests.  They should all pass.  If any fail, useful
 The correct URL for the balances page is <https://i-want-to-study-engineering.org/q/balances> and the functions created to check this are stored in the <theUrl.js> file.
 Three functions have been created to check this, which are:
 # 1. isWellFormedURL
-    This checks if the URL contains the essential parts of a valid URL and then uses the javascript URL function to create a URL object, which will work only if the URL is well-formed.  If this URL function fails the     
-    isWellFormedURL function returns false, as it also does if any essential component is missing.  The critical elements of a URL have been deemed to be:
-        a. Protocol - for this site, that should be <https:>
-        b. Host - for this site, that should be <i-want-to-study-engineering.org> - although hostname is also populated for this
-        Additionally, the URL being worked with also contains the pathname - for this site, that should be </q/balances> but the presence of this is not critical for a well-formed URL.
-    The isWellFormed function does not test the value of these components against the expected values but does check if they are present and returns false if any are missing.
+    This function uses the Javascript URL constructor to verify a valid URL. If an error is thrown, then it was not a valid URL; otherwise, it returns true.
+    Several tests of this are done, including with the URL for the balances page in question and other URLs, both simple and complex, well-formed and otherwise, which help ensure that the function does
+    what is expected of it.
 # 2. checkURLValue
     This function has a hard-coded copy of the expected URL.  This is not normally good practice as such things may change unexpectedly and without necessarily warning those maintaining this code but in this specific 
     case where the URL is specified directly and only for this assignment, the hard-coded value is contained within the function.
