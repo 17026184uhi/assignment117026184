@@ -31,3 +31,19 @@ test("Checks if badURL2 is well-formed", () => {
   const badURL2 = "some-other url-with-a-space";
   expect(theURL.isURLWellFormed(badURL2)).toBe("Error validating URL");
 });
+
+test("Checks the URL is the correct value", () => {
+  const url = "https://i-want-to-study-engingeering.org/q/balances";
+  expect(theURL.checkURLValue(url)).toBe(true);
+});
+
+test("Checks the wrong URL is NOT the correct value", () => {
+  const expectedURL = "https://i-want-to-study-engingeering.org/q/balances";
+  const testURL = "https://google.com";
+  const msg =
+    "The supplied url:" +
+    testURL +
+    "is different to the expected value:" +
+    expectedURL;
+  expect(theURL.checkURLValue(testURL)).toBe(msg);
+});
