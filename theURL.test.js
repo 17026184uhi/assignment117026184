@@ -1,5 +1,4 @@
-// const theURL = require("./theURL");
-const theURL = require("C:/Users/richa/OneDrive/Documents/Masters/WAD/a117026184/theURL.js");
+const theURL = require("./theURL.js");
 
 test("Checks the actual URL is well-formed", () => {
   const url = "https://i-want-to-study-engingeering.org/q/balances";
@@ -22,35 +21,3 @@ test("Checks if wellFormedURL3 is well-formed", () => {
     "https://en.wikipedia.org/wiki/February_9#:~:text=February%209%20is%20the%2040th,(326%20in%20leap%20years)";
   expect(theURL.isURLWellFormed(wellFormedURL3)).toBe(true);
 });
-
-// test("Checks if wellFormedURL4 is well-formed", () => {
-//   expect(theURL.isURLWellFormed(wellformedURL4)).toBe(true);
-// });
-
-// const badURL1 = "htx:/some-other-url";
-// test("Checks if badURL1 is well-formed", () => {
-//   expect(theURL.isURLWellFormed(badURL1)).toBe(false);
-// });
-
-// const badURL2 = "htx:/some-other url-with-a-space";
-// test("Checks if badURL2 is well-formed", () => {
-//   expect(theURL.isURLWellFormed(badURL1)).toBe(false);
-// });
-
-// const badURL3 = "/some-other-url";
-// test("Checks if badURL3 is well-formed", () => {
-//   expect(theURL.isURLWellFormed(badURL1)).toBe(false);
-// });
-
-// const badURL4 = "i-want-to-study-engineering.org";
-// test("Checks if badURL4 is well-formed", () => {
-//   expect(theURL.isURLWellFormed(badURL1)).toBe(
-//     "URL is missing a slash so is not well-formed."
-//   );
-// });
-
-// test("Checks other well-formed URLs", () => {
-//   for (const wellFormedURL in wellFormedURLs) {
-//     expect(theURL.isURLWellFormed(wellFormedURL)).toBe(true);
-//   }
-// });
