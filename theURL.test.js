@@ -21,3 +21,13 @@ test("Checks if wellFormedURL3 is well-formed", () => {
     "https://en.wikipedia.org/wiki/February_9#:~:text=February%209%20is%20the%2040th,(326%20in%20leap%20years)";
   expect(theURL.isURLWellFormed(wellFormedURL3)).toBe(true);
 });
+
+test("Checks if badURL1 is well-formed", () => {
+  const badURL1 = "htx/some-other-url";
+  expect(theURL.isURLWellFormed(badURL1)).toBe("Error validating URL");
+});
+
+test("Checks if badURL2 is well-formed", () => {
+  const badURL2 = "some-other url-with-a-space";
+  expect(theURL.isURLWellFormed(badURL2)).toBe("Error validating URL");
+});
