@@ -130,3 +130,52 @@ Looks at the array of child JSON objects and compares their values for a given k
 The module then exports those functions called directly by the test file, namely:
 
 checkChildObjectKeys, checkValuesInArray & checkChildObjectArrayKeys
+
+# dataAnalysis.test.js
+
+This contains a suite of jest tests for confirming the functions in dataAnalysis.js works as intended. These are:
+
+"Checks the top level JSON data contains correct child objects"
+"Checks the checkChildObjectKeys function handles null JSON objects"
+"Checks the checkChildObjectKeys function handles empty string in array of element names"
+"Checks the checkChildObjectKeys function handles empty different string in array of element names"
+"Checks the checkChildObjectKeys function handles empty extra string in array of element names"
+"Checks the checkChildObjectKeys function handles a number in array of element names"
+"Checks the checkChildObjectKeys function handles null array of element names"
+"Checks the correct elements are in the balances top level data"
+"Checks the hint object has the correct children"
+"Checks the titleColumn objects in the balance data have correct linkTitle values"
+"Checks the titleColumn objects in the balance data have correct columnTitle values"
+"Checks the video objects in the balance hint titleColumn data have correct linkTitle values"
+"Checks the video objects in the balance hint titleColumn data have correct columnTitle values"
+"Checks the video objects in the balance hint video data have correct image values"
+"Checks the video objects in the balance hint video data have correct link values"
+"Checks the video objects in the balance hint video data have correct title values"
+"Checks the video objects in the balance hint video data have correct type values"
+"Checks the video objects in the balance hint title data have correct linkTitle values"
+"Checks the video objects in the balance hint title data have correct rowTitle values"
+"Checks that wrong data in an object in the balance hint title data is found"
+"Checks the theData.balances.hint.title object has the correct children"
+"Checks the checkChildObjectArrayKeys function handles the wrong data being supplied"
+"Checks the checkChildObjectArrayKeys function handles null JSON objects"
+"Checks the checkChildObjectArrayKeys function handles null value arrays"
+"Checks the checkChildObjectArrayKeys function handles empty string in array of element names"
+"Checks the title objects in the balance data have correct linkTitle values"
+"Checks the title objects in the balance data have correct rowTitle values"
+"Checks that the checkValuesInArray function rejects wrong data"
+
+The above tests perform the check their description say. These have been chosen to check that the main data is present as expected. They also check that the functions properly handle null or empty values.
+Special attention has been paid to the balances section of the JSON data. This is because it appears to be the case that this is where data for the balances question, which is what this project is about, is to be found. Other sections of the JSON data may well be used in that page, but from their information, it appears that they are about other questions to do with things like gravity and laguage.
+To that aim, the tests drill down to much of the data values in the JSON data in parts of the balances section. This is done because without that data, the web application cannot be expected work properly, if at all. That is the intended function of this assignment so it is believed to be appropriate.
+Additionally, tests that works with the correct values has also been made where the data itself is incorrect, i.e. with a change to that data.  
+To achieve this, an additional file, theDataWithErrors.js, has been used. If you check this in detail, a change to balances.hint.title has been made. This proves that the check against the supplied comparison data does pick up this changed source data. These tests are made for 2 functions that use that data as follows:
+
+"Checks that wrong data in an object in the balance hint title data is found"
+which calls the function: "checkValuesInArray"
+
+and
+
+"Checks the checkChildObjectArrayKeys function handles the wrong data being supplied"
+which calls the function: "checkChildObjectArrayKeys"
+
+Without those two tests, we wouldn't know for sure what would happen if the data itself was wrong, or had become corrupt.

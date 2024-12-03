@@ -245,53 +245,53 @@ test("Checks the checkChildObjectArrayKeys function handles the wrong data being
   ).toBe(false);
 });
 
-// test("Checks the checkChildObjectArrayKeys function handles null JSON objects", () => {
-//   const parentData = null;
-//   const expectedValues = ["linkTitle", "rowTitle"];
-//   expect(
-//     dataAnalysis.checkChildObjectArrayKeys(parentData, expectedValues)
-//   ).toBe("JSON object was null");
-// });
+test("Checks the checkChildObjectArrayKeys function handles null JSON objects", () => {
+  const parentData = null;
+  const expectedValues = ["linkTitle", "rowTitle"];
+  expect(
+    dataAnalysis.checkChildObjectArrayKeys(parentData, expectedValues)
+  ).toBe("JSON object was null");
+});
 
-// test("Checks the checkChildObjectArrayKeys function handles null value arrays", () => {
-//   const parentData = theData.balances.hint.title;
-//   const expectedValues = null;
-//   expect(
-//     dataAnalysis.checkChildObjectArrayKeys(parentData, expectedValues)
-//   ).toBe("Element names was null");
-// });
+test("Checks the checkChildObjectArrayKeys function handles null value arrays", () => {
+  const parentData = theData.balances.hint.title;
+  const expectedValues = null;
+  expect(
+    dataAnalysis.checkChildObjectArrayKeys(parentData, expectedValues)
+  ).toBe("Element names was null");
+});
 
-// test("Checks the checkChildObjectArrayKeys function handles empty string in array of element names", () => {
-//   const parentData = theData.balances.hint.title;
-//   const expectedValues = ["", "rowTitle"];
-//   expect(
-//     dataAnalysis.checkChildObjectArrayKeys(parentData, expectedValues)
-//   ).toBe(false);
-// });
+test("Checks the checkChildObjectArrayKeys function handles empty string in array of element names", () => {
+  const parentData = theData.balances.hint.title;
+  const expectedValues = ["", "rowTitle"];
+  expect(
+    dataAnalysis.checkChildObjectArrayKeys(parentData, expectedValues)
+  ).toBe(false);
+});
 
-// test("Checks the title objects in the balance data have correct linkTitle values", () => {
-//   const parentData = theData.balances.hint.title;
-//   const keyName = "linkTitle";
-//   const expectedValues = ["overall", "moments", "gravity"];
-//   expect(
-//     dataAnalysis.checkValuesInArray(parentData, keyName, expectedValues)
-//   ).toBe(true);
-// });
+test("Checks the title objects in the balance data have correct linkTitle values", () => {
+  const parentData = theData.balances.hint.title;
+  const keyName = "linkTitle";
+  const expectedValues = ["overall", "moments", "gravity"];
+  expect(
+    dataAnalysis.checkValuesInArray(parentData, keyName, expectedValues)
+  ).toBe(true);
+});
 
-// test("Checks the title objects in the balance data have correct rowTitle values", () => {
-//   const parentData = theData.balances.hint.title;
-//   const keyName = "rowTitle";
-//   const expectedValues = ["Overall solution strategy", "Moments", "Gravity"];
-//   expect(
-//     dataAnalysis.checkValuesInArray(parentData, keyName, expectedValues)
-//   ).toBe(true);
-// });
+test("Checks the title objects in the balance data have correct rowTitle values", () => {
+  const parentData = theData.balances.hint.title;
+  const keyName = "rowTitle";
+  const expectedValues = ["Overall solution strategy", "Moments", "Gravity"];
+  expect(
+    dataAnalysis.checkValuesInArray(parentData, keyName, expectedValues)
+  ).toBe(true);
+});
 
-// test("Checks that the checkValuesInArray function rejects wrong data", () => {
-//   const parentData = theData.balances.hint.title;
-//   const keyName = "rowTitle";
-//   const expectedValues = ["Overall solution strategy", "Moments", ""];
-//   expect(
-//     dataAnalysis.checkValuesInArray(parentData, keyName, expectedValues)
-//   ).toBe(false);
-// });
+test("Checks that the checkValuesInArray function rejects wrong data", () => {
+  const parentData = theData.balances.hint.title;
+  const keyName = "rowTitle";
+  const expectedValues = ["Overall solution strategy", "Moments", ""];
+  expect(
+    dataAnalysis.checkValuesInArray(parentData, keyName, expectedValues)
+  ).toBe(false);
+});
