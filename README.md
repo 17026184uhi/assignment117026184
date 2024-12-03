@@ -55,13 +55,14 @@ Where a generic bad URL is needed for a test, a for-in loop uses each of the ent
 
 Each test written begins with test(phrase) where phrase is a description of what is being done and what is expected, so that should the test fail, it can be seen what was anticipated and debugging can be done more easily.
 
-Tests for each of the following have been written:
-"Checks the URL is well-formed"
-"Checks the URL is NOT well-formed"
-"Checks the URL is the correct value"
-"Checks the URL is NOT the correct value"
-"Checks the URL ends with balances"
-"Checks if that a bad URL that doesn't end with balances returns false"
+Tests for each of the following scenario types have been written:
+
+1. "Checks the URL is well-formed"
+1. "Checks the URL is NOT well-formed"
+1. "Checks the URL is the correct value"
+1. "Checks the URL is NOT the correct value"
+1. "Checks the URL ends with balances"
+1. "Checks if that a bad URL that doesn't end with balances returns false"
 
 The above tests are run, sometimes with different data, in the following complete list of test calls. The repeated calls with different data check different typs of possible issues with the URL when it is not the correct one.
 
