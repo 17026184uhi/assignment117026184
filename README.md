@@ -8,14 +8,20 @@ Firstly, though, the URL is checked using the same approach.
 
 To this aim, jest is used to run tests against javascript functions that check aspects of that JSON data.
 
+# index.js
+
+This is provided as a standard default load point for a website. Currently, this does nothing more than load the data and display the JSON data object. It can be run with the command:
+node ./index
+
 # Run the tests
 
 To perform the tests, do the following:
 
-1. Download all the files into a directory, or clone the repository with the "git clone" command.
-2. Ensure you have Node.js installed and that it also installed npm.
-3. Using a command prompt in CommandShell or similar (depending on your operating system), navigate to the directory you copied the files to.
-4. Run the test suite using the command:
+1. Ensure you environment has node installed, and that it came with npm, and that git is installed. This has been tested with node version 23.0.0 and npm version 10.9.0 and git version 2.47.0.windows.2
+2. Create an empty folder to put the program into and navigate to it.
+3. Copy the link for the repository ( https://github.com/17026184uhi/assignment117026184.git ).
+4. Type the command "git clone " then paste the link before hitting enter.
+5. Run the test suite using the command:
    npm run test
 
 That command will run all the tests. They should all pass. If any fail, useful output will be provided to help identify the problem. In such an event, check that all the files from this repository are present and if so, some debugging may be required.
@@ -34,16 +40,13 @@ Three functions have been created to check this, which are:
 
 # 2. checkURLValue
 
-    This function has a hard-coded copy of the expected URL.  This is not normally good practice as such things may change unexpectedly and without necessarily warning those maintaining this code but in this specific
-    case where the URL is specified directly and only for this assignment, the hard-coded value is contained within the function.
+    This function has a hard-coded copy of the expected URL.  This is not normally good practice as such things may change unexpectedly and without necessarily warning those maintaining this code but in this specific case where the URL is specified directly and only for such an assignment, the hard-coded value is contained within the function.
     The function then compares, using an exact compare (which checks for the data type as well as the value) the supplied URL against this hard-coded URL.
 
 # 3. checkURLEndsWithBalances
 
-    A URL may contain other elements such as a query.  Hence it is possible that such additional information may be added to the end of the expected URL.  It is assumed that any such additional information will
-    follow a question mark.  The function therefore checks for a question mark and splits the URL in two there if present, and from there treats the preceeding string as the URL.
-    The URL (or that before any question mark) is then checked to see if it ends with the word <balances>; if it does not then it is not for this question.  This has been written in this way as a separate function
-    to that for checking the entire URL as, should the entire URL check no longer be valid following some future and unknown change, this function may still be valid.
+    A URL may contain other elements such as a query.  Hence it is possible that such additional information may be added to the end of the expected URL.  It is assumed that any such additional information will follow a question mark.  The function therefore checks for a question mark and splits the URL in two therat that point if present, and from there treats the preceeding string as the URL.
+    The URL (or that before any question mark) is then checked to see if it ends with the word <balances>; if it does not then it is not for this question.  This has been written in this way as a separate function to that for checking the entire URL as, should the entire URL check no longer be valid following some future and unknown change, this function may still be valid.
 
 # theUrl.test.js
 
@@ -60,5 +63,43 @@ Tests for each of the following have been written:
 "Checks the URL ends with balances"
 "Checks if that a bad URL that doesn't end with balances returns false"
 
-All of the tests perform a test as per their description. This calls the function being tested and passes (in most cases) a value. It also specifies the expected result, such as true or false, or in the case of checking the well-formedness of the URL, it checks if an exception or error has been thrown. If that function can't instantiate a javascript URL object from the supplied URL, for example, then it will throw an exception, and this is expected for passing a bad URL and not when passing a valid URL.  
+All of the tests perform a test as per their description. This calls the function being tested and passes (in most cases) a value. It also specifies the expected result, such as true or false, or in the case of checking the well-formedness of the URL, it checks if an error has been thrown. If that function can't instantiate a javascript URL object from the supplied URL, for example, then it will throw an error, and this is expected for passing a bad URL and not when passing a valid URL.  
 If a function returns true when false was expected, or false when true was expected then that test fails. If the actual result matches the expected result then the test passes.
+
+# theData.js
+
+This file contains a copy of the JSON data used for the web applicaton. It puts this into a constant called data and then exports it. It is used to access the data to run the tests on that data.
+
+# theDataWithErrors.js
+
+This file contains another copy of the JSON data used for the web applicaton but this time with some deliberate errors to check what happens when the data is such that the web application would not have the data it neesd. It puts this into a constant called badData and then exports it. It is used to access the badData to run the tests on that (bad) data.
+
+# dataAnalysis.js
+
+This file contains the following functions:
+
+# 1. findUniqiueElementsIn2Arrays(array1, array2)
+
+This function is used to help analyse 2 arrays to see what the difference(s) are. It then outputs those to the console. It is called only when differences are found - for the purposes of this assignment that is anticipated to be when a test is run where there should be a difference. It is to help debug any such issues if they happen unexpectedly.
+
+# 2. checkChildObjectArrayKeys(parentObj, keysArray)
+
+This is called when a parent object has an array of child objects and each child object should have the same keys. If the keys are as expected, it returns true, false otherwise. It also checks for null values for the JSON object and the values array, returning a message to that effect.
+
+# 3. checkChildObjectKeys(parentObj, keysArray)
+
+Very similar on the face of it to checkChildObjectArrayKeys. The difference is that checkChildObjectArrayKeys checks the child array of JSON objects for their keys, this is not for an array of child objects, just some key names and a single object.
+
+# 4. listObjectNames(jsonData)
+
+This is not called directly by the tests but by other functions and list the names of objects in the supplied JSON object
+
+# 5. checkValuesInArray(parentData, keyName, expectedValues)
+
+Looks at the array of child JSON objects and compares their values for a given key name to the given array of expected values.
+
+# exports
+
+The module then exports those functions called directly by the test file, namely:
+
+checkChildObjectKeys, checkValuesInArray & checkChildObjectArrayKeys
