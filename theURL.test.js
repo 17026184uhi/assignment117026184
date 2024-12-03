@@ -28,9 +28,8 @@ test("Checks if badURL1 is well-formed", () => {
 });
 
 test("Checks if badURL2 is well-formed", () => {
-  const badURLa = "https://some-other%20url-with-a-space.com"; //get rid of this
-  const badURL2 = "https://goo%20gle.com"; //change this back
-  expect(theURL.isURLWellFormed(badURL2)).toBe("Error validating URL"); //change this back
+  const badURL2 = "https://goo%20gle.com";
+  expect(theURL.isURLWellFormed(badURL2)).toBe("Error validating URL");
 });
 
 test("Checks the URL is the correct value", () => {
