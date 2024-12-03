@@ -32,6 +32,16 @@ test("Checks if badURL2 is well-formed", () => {
   expect(theURL.isURLWellFormed(badURL2)).toBe("Error validating URL");
 });
 
+test("Checks that isURLWellFormed handles a null url", () => {
+  const url = null;
+  expect(theURL.isURLWellFormed(url)).toBe("URL cannot be null");
+});
+
+test("Checks that isURLWellFormed handles an empty but not null url", () => {
+  const url = "";
+  expect(theURL.isURLWellFormed(url)).toBe("URL cannot be empty");
+});
+
 test("Checks the URL is the correct value", () => {
   const url = "https://i-want-to-study-engingeering.org/q/balances";
   expect(theURL.checkURLValue(url)).toBe(true);
@@ -46,6 +56,16 @@ test("Checks the wrong URL is NOT the correct value", () => {
     "is different to the expected value:" +
     expectedURL;
   expect(theURL.checkURLValue(testURL)).toBe(msg);
+});
+
+test("Checks that checkURLValue handles a null url", () => {
+  const testURL = null;
+  expect(theURL.checkURLValue(testURL)).toBe("URL cannot be null");
+});
+
+test("Checks that checkURLValue handles an empty but not null url", () => {
+  const testURL = "";
+  expect(theURL.checkURLValue(testURL)).toBe("URL cannot be empty");
 });
 
 test("Checks the URL ends with balances", () => {
@@ -74,4 +94,14 @@ test("Checks the URL does NOT end with balances", () => {
   const url =
     "https://i-want-to-study-engingeering.org/q/balances/widgets?value1=0,value2=1";
   expect(theURL.checkURLEndsWithBalances(url)).toBe(false);
+});
+
+test("Checks that checkURLEndsWithBalances handles a null url", () => {
+  const url = null;
+  expect(theURL.checkURLEndsWithBalances(url)).toBe("URL cannot be null");
+});
+
+test("Checks that checkURLEndsWithBalances handles an empty but not null url", () => {
+  const url = "";
+  expect(theURL.checkURLEndsWithBalances(url)).toBe("URL cannot be empty");
 });

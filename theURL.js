@@ -1,4 +1,10 @@
 function isURLWellFormed(urlString) {
+  if (urlString === null) {
+    return "URL cannot be null";
+  }
+  if (urlString === "") {
+    return "URL cannot be empty";
+  }
   try {
     const url = new URL(urlString);
     return true;
@@ -8,6 +14,12 @@ function isURLWellFormed(urlString) {
 }
 
 function checkURLValue(urlString) {
+  if (urlString === null) {
+    return "URL cannot be null";
+  }
+  if (urlString === "") {
+    return "URL cannot be empty";
+  }
   const url = "https://i-want-to-study-engingeering.org/q/balances";
   if (urlString === url) {
     return true;
@@ -22,6 +34,12 @@ function checkURLValue(urlString) {
 }
 
 function checkURLEndsWithBalances(urlString) {
+  if (urlString === null) {
+    return "URL cannot be null";
+  }
+  if (urlString === "") {
+    return "URL cannot be empty";
+  }
   const balances = "balances";
   if (urlString.indexOf("?") != -1) {
     var parts = urlString.split("?");

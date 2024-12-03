@@ -50,7 +50,7 @@ Three functions have been created to check this, which are:
 
 # theUrl.test.js
 
-This file reads in the theUrl.js file, then creates 2 constants - the hard-coded URL mentioned above and an array of badUrls. This includes URLs that are different to the expected URL, malformed URLs and ones with invalid characters, such as a space (which would normally need to be encoded as %20 in a URL).
+This file reads in the theUrl.js file, then creates a constant - the hard-coded URL mentioned above. Other URLs are assigned to constants in specific test as required. This includes URLs that are different to the expected URL, malformed URLs and ones with invalid characters, such as a space (which would normally need to be encoded as %20 in a URL).
 Where a generic bad URL is needed for a test, a for-in loop uses each of the entries in this array in turn for that test.
 
 Each test written begins with test(phrase) where phrase is a description of what is being done and what is expected, so that should the test fail, it can be seen what was anticipated and debugging can be done more easily.
@@ -63,8 +63,13 @@ Tests for each of the following have been written:
 "Checks the URL ends with balances"
 "Checks if that a bad URL that doesn't end with balances returns false"
 
-All of the tests perform a test as per their description. This calls the function being tested and passes (in most cases) a value. It also specifies the expected result, such as true or false, or in the case of checking the well-formedness of the URL, it checks if an error has been thrown. If that function can't instantiate a javascript URL object from the supplied URL, for example, then it will throw an error, and this is expected for passing a bad URL and not when passing a valid URL.  
+The above tests were chosen so that it can be confirmed that the URL is both correct and well formed. If either of those is not the case then the web application cannot be called.
+The test for the case that the wrong URL is passed then this can be identified and also confirms that the check for the correct URL will identify when this is not the case.
+
+All of the tests perform a test as per their description. This calls the function being tested and passes (in most cases) a value. It also specifies the expected result, such as true or false, or in the case of checking the well-formedness of the URL, it checks if an error has been thrown. If that function can't instantiate a JavaScript URL object from the supplied URL, for example, then it will throw an error, and this is expected for passing a bad URL and not when passing a valid URL.  
 If a function returns true when false was expected, or false when true was expected then that test fails. If the actual result matches the expected result then the test passes.
+
+6 additional tests check if the 3 functions identify and handle null or empty strings as the URL may not be set correctly when the function is called in some condition or if a bug were to exist in code using those functions.
 
 # theData.js
 
