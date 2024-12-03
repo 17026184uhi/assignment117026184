@@ -63,6 +63,28 @@ Tests for each of the following have been written:
 "Checks the URL ends with balances"
 "Checks if that a bad URL that doesn't end with balances returns false"
 
+The above tests are run, sometimes with different data, in the following complete list of test calls. The repeated calls with different data check different typs of possible issues with the URL when it is not the correct one.
+
+"Checks the actual URL is well-formed"
+"Checks if wellFormedURL1 is well-formed"
+"Checks if wellFormedURL2 is well-formed"
+"Checks if wellFormedURL3 is well-formed"
+"Checks if badURL1 is well-formed"
+"Checks if badURL2 is well-formed"
+"Checks that isURLWellFormed handles a null url"
+"Checks that isURLWellFormed handles an empty but not null url"
+"Checks the URL is the correct value"
+"Checks the wrong URL is NOT the correct value"
+"Checks that checkURLValue handles a null url"
+"Checks that checkURLValue handles an empty but not null url"
+"Checks the URL ends with balances"
+"Checks the URL ends with balances"
+"Checks the URL does NOT end with balances"
+"Checks the URL does NOT end with balances"
+"Checks the URL does NOT end with balances"
+"Checks that checkURLEndsWithBalances handles a null url"
+"Checks that checkURLEndsWithBalances handles an empty but not null url"
+
 The above tests were chosen so that it can be confirmed that the URL is both correct and well formed. If either of those is not the case then the web application cannot be called.
 The test for the case that the wrong URL is passed then this can be identified and also confirms that the check for the correct URL will identify when this is not the case.
 
